@@ -1,4 +1,31 @@
 <html>
-	<head> </head>
-	<body></body>
+	<head>
+		<title>Planete</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../bootstrap-4.4.1-dist\css\bootstrap.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="planete.css" />
+		<script src="../bootstrap-4.4.1-dist\js\bootstrap.min.js"></script>
+		<script src="planete.js"></script>
+	</head>
+	<body>
+		<div class="greybox" id="grey">
+			<button
+				class="btn btn-success col-2 text-center py-3 show-pointer"
+				onclick="ChangeToGame()"
+			>
+				START
+			</button>
+		</div>
+
+		<div class="row justify-content-around w-100 h-100" id="game">
+			<div class="col-2 align-items-center d-flex" id="planet1"></div>
+			<div class="col-2 align-items-center d-flex" id="planet2"></div>
+			<div class="col-2 align-items-center d-flex" id="planet3"></div>
+			<div class="col-2 align-items-center d-flex" id="planet4"></div>
+		</div>
+	</body>
 </html>

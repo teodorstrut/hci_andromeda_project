@@ -1,0 +1,12 @@
+body {
+	background-image: url("../Imagini/space2.jpg");
+	background-size: cover;
+}
+
+.greybox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}

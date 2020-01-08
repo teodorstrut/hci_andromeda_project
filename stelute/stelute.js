@@ -3,9 +3,9 @@ var score = 0;
 var MaxScore = 5;
 var GoodSound = new Audio("../Audio/Bravo.m4a");
 var BadSound = new Audio("../Audio/Mai incearca.m4a");
-var finishPage = "Felicitari.html";
+var finishPage = "../planete/planete.html";
 
-window.onload = function () {
+window.onload = function() {
 	document.getElementById("game").style.display = "none";
 };
 
