@@ -30,3 +30,8 @@ body {
     width: 500px;
     height: 500px;
 }
+
+#StartTest .bigImage{
+    width: 80%;
+    height: 80%;
+}
