@@ -3,12 +3,21 @@ var score = 0;
 var MaxScore = 5;
 var GoodSound = new Audio("../Audio/Bravo.m4a");
 var BadSound = new Audio("../Audio/Mai incearca.m4a");
-var finishPage = "../Felicitari.html";
+var finishPage = "Felicitari.html";
 
-window.onload = function() {
+window.onload = function () {
+	document.getElementById("game").style.display = "none";
+};
+
+function ChangeToGame() {
+	document.getElementById("game").style.display = "block";
+	document.getElementById("grey").style.display = "none";
+
 	var audio = new Audio("../Audio/Numara stelele de pe ecran.m4a");
 	audio.play();
-};
+
+	run();
+}
 
 function run() {
 	if (score == MaxScore) {
