@@ -63,26 +63,26 @@ function createQuestion(){
 			rand3 = Math.floor((Math.random()*8) + 1);
 		}
 		if (Number(rand) === Number(1)){
-			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct')\">";
-			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
-			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
+			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + ")\">";
+			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
+			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
 		}
 		else if (Number(rand === Number(2))){
-			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
-			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct')\">";
-			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
+			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
+			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + "))\">";
+			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
 		}
 		else {
-			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
-			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong')\">";
-			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct')\">";
+			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
+			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
+			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + ")\">";
 		}
 	}
 	
 	
 }
 
-function play(item){
+function play(item, no){
 	var cont = 0;
 	if (Number(counter) == 5){
 		var audio = new Audio("../Audio/Felicitari.m4a");
@@ -96,7 +96,11 @@ function play(item){
 		document.getElementById("planet3").innerHTML = " ";
 		document.getElementById("question").innerHTML = " ";
 		counter += 1;
-		soundCorrect.onended = function (){ createQuestion();}
+		soundCorrect.onended =  function (){ 
+			var audio = new Audio(audioAnswers[Number(no)]);
+			audio.play();
+			audio.onended = function () {createQuestion();}
+		}
 	}
 	else if (String(item) == "wrong"){
 		soundWrong.play();
