@@ -6,6 +6,8 @@ body {
 	padding: 0;
 	min-width: 500px;
 	min-height: 500px;
+	background: url("../Imagini/space.jpg");
+	background-size: cover;
 }
 
 #StarHolder img {

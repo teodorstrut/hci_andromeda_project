@@ -1,18 +1,18 @@
 var randomNumber;
 var score = 0;
 var MaxScore = 5;
-var GoodSound = new Audio("Audio/Bravo.m4a");
-var BadSound = new Audio("Audio/Mai incearca.m4a");
-var finishPage = "Felicitari.html";
+var GoodSound = new Audio("../Audio/Bravo.m4a");
+var BadSound = new Audio("../Audio/Mai incearca.m4a");
+var finishPage = "../Felicitari.html";
 
 window.onload = function() {
-	var audio = new Audio("Audio/Numara stelele de pe ecran.m4a");
+	var audio = new Audio("../Audio/Numara stelele de pe ecran.m4a");
 	audio.play();
 };
 
 function run() {
 	if (score == MaxScore) {
-		var audio = new Audio("Audio/Felicitari.m4a");
+		var audio = new Audio("../Audio/Felicitari.m4a");
 		audio.play();
 		window.location.replace(finishPage);
 	}
@@ -56,7 +56,7 @@ function displayStelute(randomNumber) {
 
 		if (i < randomNumber) {
 			var node = document.createElement("img");
-			node.src = "Imagini/star2.png";
+			node.src = "../Imagini/star2.png";
 			starCol.appendChild(node);
 		}
 
