@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<title>Invatare</title>
+		<link rel="stylesheet" type="text/css" href="invatare.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="../bootstrap-4.4.1-dist\css\bootstrap.min.css"
+		/>
+		<script src="../bootstrap-4.4.1-dist\js\bootstrap.min.js"></script>
+		<script src="invatare.js"></script>
+		<script src="../Start/index.js"></script>
+	</head>
 
-<head>
-    <title>Invatare</title>
-    <link rel="stylesheet" type="text/css" href="invatare.css" />
-    <link rel="stylesheet" type="text/css" href="../bootstrap-4.4.1-dist\css\bootstrap.min.css" />
-    <script src="../bootstrap-4.4.1-dist\js\bootstrap.min.js"></script>
-    <script src="invatare.js"></script>
-</head>
+	<body>
+		<div class="greybox" id="grey">
+			<button
+				class="btn btn-success col-2 text-center py-3 show-pointer"
+				onclick="LEARN()"
+			>
+				START
+			</button>
+		</div>
 
-<body>
-
-    <div class="greybox" id="grey">
-        <button class="btn btn-success col-2 text-center py-3 show-pointer" onclick="LEARN()">START</button>
-    </div>
-
-    <div id="StartTest">
-    </div>
-</body>
-
+		<div id="StartTest"></div>
+	</body>
 </html>
