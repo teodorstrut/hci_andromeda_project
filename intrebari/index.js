@@ -69,7 +69,7 @@ function createQuestion(){
 		}
 		else if (Number(rand === Number(2))){
 			document.getElementById("planet2").innerHTML = "<img src='" + imageAnswers[rand2] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
-			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + "))\">";
+			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + ")\">";
 			document.getElementById("planet3").innerHTML = "<img src='" + imageAnswers[rand3] + "' height=\"70%\" width=\"70%\" onclick = \"play('wrong'," + 0 + ")\">";
 		}
 		else {
@@ -78,8 +78,6 @@ function createQuestion(){
 			document.getElementById("planet1").innerHTML = "<img src='" + imageAnswers[rand] + "' height=\"70%\" width=\"70%\" onclick = \"play('correct'," + rand + ")\">";
 		}
 	}
-	
-	
 }
 
 function play(item, no){
