@@ -104,7 +104,7 @@ function PlayCorrect() {
 	} else {
 		GoodSound.play();
 		setTimeout(function() {
-			window.location.replace("../Nivel3/index.html");
+			window.location.replace("../intrebari/index.html");
 		}, 2000);
 	}
 }

@@ -1,62 +1,73 @@
-html {
-    height: 100%;
-    width: 100%;
-    background-image: url('../Imagini/space2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+html,
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url("../Imagini/space2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-.oldBackground{
-    background-image: url('../Imagini/Planete/Planete.jpg');
+.oldBackground {
+	background-image: url("../Imagini/Planete/Planete.jpg");
 }
 
-.containerQuestion{
-    position: fixed;
-    width: 100%;
-    height: 40%;
-    top: 0;
-    left : 0;
-    padding-top: 8%;
-    display: block;
-    text-align: center;
-    text-shadow: 3px 3px #000000;
-    color: gold;
-    font-size: 45px; 
+.containerQuestion {
+	position: fixed;
+	width: 100%;
+	height: 40%;
+	top: 0;
+	left: 0;
+	padding-top: 8%;
+	display: block;
+	text-align: center;
+	text-shadow: 3px 3px #000000;
+	color: gold;
+	font-size: 45px;
 }
 
-.question{
-    opacity: 100%;
-    display: inline-block;
-
+.question {
+	opacity: 100%;
+	display: inline-block;
 }
 
-.question p{
-    border-radius: 60px / 60px;
+.question p {
+	border-radius: 60px / 60px;
 }
 
-.containerAnswer{
-    width: 100%;
-    height: 60%;
-    bottom: 0;
-    left: 0;
-    position: fixed;
+.containerAnswer {
+	width: 100%;
+	height: 60%;
+	bottom: 0;
+	left: 0;
+	position: fixed;
 }
 
-.answ{
-    display: inline-block;
-    width: 33%;
-    height: 100%;
-    text-align: center;
+.answ {
+	display: inline-block;
+	width: 33%;
+	height: 100%;
+	text-align: center;
 }
-img{
-    text-align: center;
+img {
+	text-align: center;
 }
 
-img:hover{
-    /*outline: 2px solid black; 
+img:hover {
+	/*outline: 2px solid black; 
     outline-width: 6px;*/
-    width: 85%;
-    height: 85%;
+	width: 85%;
+	height: 85%;
 }
 
+.greybox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.zindex {
+	z-index: 1000;
+}
