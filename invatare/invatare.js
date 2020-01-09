@@ -268,7 +268,6 @@ function TestSound() {
 
 		setTimeout(function() {
 			document.getElementById("StartTest").innerHTML = "";
-			finishedLearn();
 			audio.play();
 		}, 500);
 	});
