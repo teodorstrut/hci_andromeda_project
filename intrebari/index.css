@@ -49,11 +49,12 @@ body {
 	height: 100%;
 	text-align: center;
 }
+
 img {
 	text-align: center;
 }
 
-img:hover {
+.hover:hover {
 	/*outline: 2px solid black; 
     outline-width: 6px;*/
 	width: 85%;
@@ -70,4 +71,29 @@ img:hover {
 
 .zindex {
 	z-index: 1000;
+}
+
+.allignButtons{
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.content {
+	height: 90%;
+	width: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	/* background-color: red; */
+}
+
+.top {
+	height: 10%;
+	width: 100%;
+	text-align: center;
+	font-family: 'Coda Caption', Verdana;
+	font-size: 5vw;
+	color: white;
+	letter-spacing: 6px;
+	display: none;
 }

@@ -1,8 +1,11 @@
 let soundCorrect = new Audio("../Audio/Corect vesel.m4a");
 let soundWrong = new Audio("../Audio/Gresit.m4a");
 let silence = new Audio("../Audio/silence.mp3");
+let congrats = new Audio("../last/Felicitari.mp3");
 var nextPage = "../last/last.html";
-var counter = 0;
+var counter = 4;
+
+var usedQuestions = [];
 
 var questions = {
 	1: "Care este cea mai apropiata planeta fata de Soare?",
@@ -54,8 +57,17 @@ function ChangeToGame() {
 }
 
 function createQuestion() {
+
+	document.getElementById("planet1").innerHTML = " ";
+	document.getElementById("planet2").innerHTML = " ";
+	document.getElementById("planet3").innerHTML = " ";
 	var rand = Math.floor(Math.random() * 8 + 1);
+	while (usedQuestions.includes(questions[rand])){
+		rand = Math.floor(Math.random() * 8 + 1);
+	}
+	usedQuestions.push(questions[rand]);
 	document.getElementById("question").innerHTML = questions[rand];
+	
 	var audio = new Audio(audioQuestion[rand]);
 	audio.play();
 	audio.onended = function() {
@@ -75,57 +87,57 @@ function createQuestion() {
 			document.getElementById("planet1").innerHTML =
 				"<img src='" +
 				imageAnswers[rand] +
-				'\' height="70%" width="70%" onclick = "play(\'correct\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'correct\',' +
 				rand +
 				')">';
 			document.getElementById("planet2").innerHTML =
 				"<img src='" +
 				imageAnswers[rand2] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 			document.getElementById("planet3").innerHTML =
 				"<img src='" +
 				imageAnswers[rand3] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 		} else if (Number(rand === Number(2))) {
 			document.getElementById("planet2").innerHTML =
 				"<img src='" +
 				imageAnswers[rand2] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 			document.getElementById("planet1").innerHTML =
 				"<img src='" +
 				imageAnswers[rand] +
-				'\' height="70%" width="70%" onclick = "play(\'correct\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'correct\',' +
 				rand +
 				')">';
 			document.getElementById("planet3").innerHTML =
 				"<img src='" +
 				imageAnswers[rand3] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 		} else {
 			document.getElementById("planet3").innerHTML =
 				"<img src='" +
 				imageAnswers[rand3] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 			document.getElementById("planet2").innerHTML =
 				"<img src='" +
 				imageAnswers[rand2] +
-				'\' height="70%" width="70%" onclick = "play(\'wrong\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'wrong\',' +
 				0 +
 				')">';
 			document.getElementById("planet1").innerHTML =
 				"<img src='" +
 				imageAnswers[rand] +
-				'\' height="70%" width="70%" onclick = "play(\'correct\',' +
+				'\' height="70%" width="70%" class = "hover" onclick = "play(\'correct\',' +
 				rand +
 				')">';
 		}
@@ -134,17 +146,34 @@ function createQuestion() {
 
 function play(item, no) {
 	var cont = 0;
-	if (Number(counter) == 5) {
-		var audio = new Audio("../Audio/Felicitari.m4a");
-		audio.play();
-		window.location.replace(nextPage);
-	}
-	if (String(item) == "correct") {
+	if (Number(counter) == 5 && String(item) == "correct") {
 		soundCorrect.play();
-		document.getElementById("planet1").innerHTML = " ";
-		document.getElementById("planet2").innerHTML = " ";
-		document.getElementById("planet3").innerHTML = " ";
-		document.getElementById("question").innerHTML = " ";
+		for (var i = 3; i < 6; i++){
+			document.getElementsByTagName("img")[i].removeAttribute("class");
+			document.getElementsByTagName("img")[i].removeAttribute("onclick");
+		}
+		soundCorrect.onended = function() {
+			var audio = new Audio(audioAnswers[Number(no)]);
+			audio.play();
+			audio.onended = function() {
+				congrats.play();
+				document.getElementsByClassName("containerQuestion")[0].style.display = "none";
+				document.getElementsByClassName("containerAnswer")[0].style.display = "none";
+				document.getElementsByClassName("top")[0].style.display = "block";
+				document.getElementsByClassName("content")[0].style.display = "flex";
+				
+			};
+		};
+	}
+	else if (Number(counter) == 5 && String(item) == "wrong") {
+		soundWrong.play();
+	}
+	else if (String(item) == "correct") {
+		soundCorrect.play();
+		for (var i = 3; i < 6; i++){
+			document.getElementsByTagName("img")[i].removeAttribute("class");
+			document.getElementsByTagName("img")[i].removeAttribute("onclick");
+		}
 		counter += 1;
 		soundCorrect.onended = function() {
 			var audio = new Audio(audioAnswers[Number(no)]);
@@ -156,4 +185,8 @@ function play(item, no) {
 	} else if (String(item) == "wrong") {
 		soundWrong.play();
 	}
+}
+
+function ChangeToHome(){
+	window.location.replace("../Home.html");
 }
