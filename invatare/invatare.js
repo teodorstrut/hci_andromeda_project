@@ -289,6 +289,10 @@ function addSun() {
 function LEARN() {
 	document.getElementById("StartTest").style.display = "flex";
 	document.getElementById("grey").style.display = "none";
-
+	document.getElementsByClassName("backButton")[0].style.display = "flex";
 	TestSound();
+}
+
+function HOME(){
+	window.location.replace("../Home.html");
 }

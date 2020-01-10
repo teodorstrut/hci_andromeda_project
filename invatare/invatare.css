@@ -20,7 +20,7 @@ body {
 
 #StartTest{
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     justify-content: center;
 	align-items: center;
@@ -34,4 +34,19 @@ body {
 #StartTest .bigImage{
     width: 80%;
     height: 80%;
+}
+
+.backButton{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 10%;
+	top:0;
+}
+
+#floatRight{
+	position:absolute; 
+	top:1%; 
+	right:1%;
 }
