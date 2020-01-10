@@ -3,7 +3,7 @@ let soundWrong = new Audio("../Audio/Gresit.m4a");
 let silence = new Audio("../Audio/silence.mp3");
 let congrats = new Audio("../last/Felicitari.mp3");
 var nextPage = "../last/last.html";
-var counter = 4;
+var counter = 1;
 
 var usedQuestions = [];
 
